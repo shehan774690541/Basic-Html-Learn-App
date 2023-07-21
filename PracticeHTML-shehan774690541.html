@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALPHA CEPH PROJ | +94774690541 | V 1.0.0.1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .home {
+            width: 100vw;
+            height: 100vh;
+            background-image: url('https://raw.githubusercontent.com/shehan774690541/shehan774690541/main/myImage.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .alert {
+            background-color: rgba(255, 255, 255, 0.678);
+            padding: 30px;
+            border-radius: 8px;
+            width: 300px;
+        }
+
+        .alert button {
+            padding: 10px;
+            border: none;
+            border-radius: 3.6px;
+            background-color: #1c1f36;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: none;
+        }
+
+        .titleBar {
+            background-color: rgb(44, 44, 44);
+            height: 35px;
+            display: flex;
+            /* align-items: center;
+            justify-content: center; */
+            color: aliceblue;
+        }
+
+        .titleBar div {
+            width: 100%;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            padding-right: 20px;
+            font-size: x-large;
+        }
+
+        .titleBar button {
+            padding: 5px;
+            border: none;
+        }
+
+        .workArea {
+            background-color: rgb(66, 66, 66);
+            background-image: url("c:\Users\user\Downloads\8-CvXAgZOlZZ4zO7r.png");
+            background-position: center;
+            height: 92%;
+            overflow: auto;
+            scrollbar-width: 1px;
+        }
+
+        .main_code {
+            background-color: rgb(255, 255, 255);
+            min-height: 92vh;
+            font-family: Consolas;
+            /* display: none; */
+        }
+
+        .main_preview {
+            height: 92vh;
+            display: none;
+            padding: 20px;
+        }
+
+        .editor-wrapper {
+            height: 100%;
+            display: flex;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+
+        .line-numbers {
+            background-color: #f0f0f0;
+            padding: 10px;
+            min-width: 40px;
+            text-align: right;
+        }
+
+        textarea {
+            flex: 1;
+            padding: 10px;
+            font-size: 16.5px;
+            resize: none;
+            border: none;
+            outline: none;
+        }
+
+        .basicHtml {
+            font-size: 1.3em;
+            padding-left: 14px;
+        }
+
+        .page_title {
+            font-size: 1.3em;
+            border-style: solid;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-width: 1px;
+        }
+
+        a {
+            color: rgb(34, 38, 252);
+        }
+
+        a:hover {
+            color: #45194d;
+        }
+
+        ::-webkit-scrollbar {
+            width: 4.6px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #e3ecd7;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        button:hover {
+            background-color: #555;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="home" id="theHome">
+        <div class="alert">
+            <center>
+                <h2>HTML STUDY FOR BEGIVERS</h2>
+                <a href="https://github.com/shehan774690541/Basic-Html-Learn-App/tree/main"
+                    title="Download New virsion">
+                    <h4>V 0.0.0.1</h4>
+                </a>
+                <br><br>
+                Developed By : <a href="http://gradientstudio.great-site.net/">OUR OFFICIAL</a><br>
+                Other Projects : <a href="https://github.com/shehan774690541">ALPHA CEPH COMMUNITY</a><br>
+                Contact Me : <a href="https://wa.me/+94774690541?text=Hi+HTML+BegenersApp+:">Whatsapp
+                    +94774690541</a><br>
+                <br><br>
+                <button onclick="startCource()"> STAT NOW</button>
+                <br>
+
+            </center>
+
+        </div>
+    </div>
+    <div class="container" id="theCource">
+        <div class="titleBar">
+            <button onclick="viewCodeArea()">CODE</button>
+            <button onclick="viewPreviewArea()">PREVIEW</button>&nbsp;
+            <button onclick="ClearProject()">CLEAR</button>
+            <button onclick="saveTextToFile()">SAVE</button>
+            <button onclick="copyCode()">COPY</button>&nbsp;
+            <button onclick="sendMessageViaWhatsApp()">REPORT</button>&nbsp;
+            <div style="width: 100%; height: 100%; overflow: hidden;">
+                <p onclick="alertToTitle()" id="theTitle" style="color: #fdfdfd; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"></p>
+            </div>
+        </div>
+        <div class="workArea">
+            <div class="">
+                <div class="main_code" id="mainCode">
+                    <div class="basicHtml" id="">
+                        &lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>
+                        &nbsp; &lt;head&gt;<br>
+                        &nbsp; &nbsp; &lt;title&gt;
+                        <input type="text" class="page_title" id="pageTitle" value="Your Title"
+                            style="text-align: center; font-size: 1rem;" onkeyup="adjestTitle()">&lt;/title&gt;
+                        <br>&nbsp; &lt;/head&gt;
+                        <br><br>&nbsp; &lt;body bgcolor="<span id="viewColor"></span>" &gt; &nbsp; &nbsp; <input
+                            type="color" name="" value="#ffffff" id="bgColorAdd" onchange="changeBgColor()">
+
+                    </div>
+                    <div class="editor-wrapper">
+                        <div class="line-numbers" id="lineNumbers"></div>
+                        <textarea id="codeEditor" placeholder="Type your code here..."
+                            onkeyup="viewPreview()"></textarea>
+                    </div>
+                    <div class="basicHtml" style="background-color: #fff;">
+                        &nbsp; &lt;/body&gt;<br> &lt;/html&gt;</div>
+                </div>
+                <div class="main_preview" id="mainPreview">
+                    <div class="" id="PreveiwMonitor"></div>
+                </div>
+            </div>
+        </div>
+        <center><a href="https://github.com/shehan774690541">PLEASE RESERVE COPYRIGHT </a> &copy; <a
+                href="https://www.youtube.com/@Gradient_Studio">SHEHAN RAJAPAKSHA</a></center>
+    </div>
+    </div>
+</body>
+<script>
+    const codeEditor = document.getElementById('codeEditor');
+    const lineNumbers = document.getElementById('lineNumbers');
+
+    function updateLineNumbers() {
+        const code = codeEditor.value;
+        const lineCount = code.split('\n').length;
+        const lineNumbersHTML = Array.from({ length: lineCount }, (_, index) => `<div>${index + 1}</div>`).join('');
+        lineNumbers.innerHTML = lineNumbersHTML;
+    }
+
+    codeEditor.addEventListener('input', updateLineNumbers);
+    updateLineNumbers();
+
+    function viewCodeArea() {
+        document.getElementById("mainCode").style.display = "block";
+        document.getElementById("mainPreview").style.display = "none";
+    }
+    function viewPreviewArea() {
+        document.getElementById("mainCode").style.display = "none";
+        document.getElementById("mainPreview").style.display = "block";
+    }
+    function viewPreview() {
+        document.getElementById("PreveiwMonitor").innerHTML = document.getElementById("codeEditor").value;
+    }
+    function adjestTitle() {
+        document.getElementById("theTitle").innerHTML = document.getElementById("pageTitle").value;
+    }
+    adjestTitle();
+    function changeBgColor() {
+        document.getElementById("viewColor").innerHTML = document.getElementById("bgColorAdd").value;
+        document.getElementById("mainPreview").style.backgroundColor = document.getElementById("bgColorAdd").value;
+
+    }
+    changeBgColor()
+    function ClearProject() {
+        document.getElementById("codeEditor").innerHTML = "<!-- HTML LIVE LEARNING CENTER -->";
+        document.getElementById("PreveiwMonitor").innerHTML = "";
+    }
+    function saveTextToFile() {
+        var pageTitle = document.getElementById("pageTitle").value;
+        var pageColor = document.getElementById("bgColorAdd").value;
+
+        var txtTop = '<!DOCTYPE html> \n<html>\n<head>\n\t<title>' + pageTitle + '</title>  \n</head>  \n<body bgcolor="' + pageColor + '" >\n\n';
+        var txtContent = document.getElementById('codeEditor').value;
+        var txtBottom = '\n\n</body>\n</html>';
+
+        var content = txtTop + "\n" + txtContent + "\n" + txtBottom;
+
+        // const textToSave = document.getElementById('codeEditor').value;
+        const blob = new Blob([content], { type: 'text/plain' });
+        const downloadLink = document.createElement('a');
+        downloadLink.href = URL.createObjectURL(blob);
+        downloadLink.download = pageTitle + '.html';
+
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+    }
+    function startCource() {
+        document.getElementById("theHome").style.display = "none";
+        document.getElementById("theCource").style.display = "block";
+    }
+    function alertToTitle() {
+        alert(document.getElementById("pageTitle").value)
+    }
+    function copyCode() {
+        try {
+            var pageTitle = document.getElementById("pageTitle").value;
+            var pageColor = document.getElementById("bgColorAdd").value;
+
+            var txtTop = '<!DOCTYPE html>\n<html>\n<head>\n\t<title>' + pageTitle + '</title>\n</head>\n<body bgcolor="' + pageColor + '">\n\n';
+            var txtContent = document.getElementById('codeEditor').value;
+            var txtBottom = '\n\n</body>\n</html>';
+
+            const content = txtTop + txtContent + txtBottom;
+            var tempTextarea = document.createElement('textarea');
+            tempTextarea.value = content;
+            document.body.appendChild(tempTextarea);
+            tempTextarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextarea);
+            alert('Text copied to clipboard!');
+        } catch (error) {
+            alert("Can't Copy. \n" + error);
+        }
+    }
+    function sendMessageViaWhatsApp() {
+        var phoneNumber = '+94774690541';
+        var message = 'HTML_LEARN_BASIC_APP_REPORT : ';
+        var encodedMessage = encodeURIComponent(message);
+        var url = 'https://wa.me/' + phoneNumber + '?text=' + encodedMessage;
+        window.open(url, '_blank');
+    }
+    // document.getElementById("bla").innerHTML = "";
+</script>
+
+</html>
