@@ -41,7 +41,7 @@ body tag එකේ BG color එක එතනම තියෙන color dialog box
 
 අලුත් අප්ඩේට් එකක් තියෙද බලන්න, එහෙම තියෙනම් ගන්න ඔයාට පුලුවන් හෝම් ස්ක්‍රින් එකේ තියෙන version කොඩ් එක ක්ලික් කරලා මගෙ ගිට් ප්‍රොයිල් එකෙන් ඒ ෆයිල් එක download කරගන්න
 
-Git Link :  https://github.com/shehan774690541/Basic-Html-Learn-App
-Web site : http://gradientstudio.great-site.net/?i=1
-youtube : https://www.youtube.com/@Gradient_Studio
-whatsapp : https://wa.me/+94774690541?text=HTML+APP+
+Git Link :  https://github.com/shehan774690541/Basic-Html-Learn-App <br />
+Web site : http://gradientstudio.great-site.net/?i=1 <br />
+youtube : https://www.youtube.com/@Gradient_Studio <br />
+whatsapp : https://wa.me/+94774690541?text=HTML+APP+ <br />
