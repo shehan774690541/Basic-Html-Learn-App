@@ -134,6 +134,97 @@
             color: rgb(34, 38, 252);
         }
 
+        button:hover {
+            background-color: #555;
+            color: #fff;
+            box-shadow: 0 0 8px rgba(78, 83, 88, 0.5);
+        }
+
+        .menus {
+            background-color: rgba(0, 0, 0, 0.178);
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            z-index: 10;
+            /* opacity: 0; */
+            /* display: none; */
+            transition: opacity 0.5s ease;
+        }
+
+        .menuBar {
+            background-color: aliceblue;
+            height: 100vh;
+            width: 200px;
+            /* display: flex; */
+            justify-content: space-between;
+        }
+
+        .container {
+            position: absolute;
+            z-index: 1;
+        }
+
+        .panelSwitch {
+            background-color: rgba(56, 149, 255, 0.623);
+            width: 30px;
+            height: 30px;
+            z-index: 5;
+            position: absolute;
+            margin-top: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: bolder;
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+            border-color: black;
+            border-style: solid;
+            border-left: none;
+            border-width: 1px;
+        }
+
+        .panelSwitch:hover {
+            box-shadow: 0 0 8px rgba(56, 149, 255, 0.5);
+        }
+
+        .closeButton {
+            margin: 10px;
+            width: 30px;
+            height: 30px;
+            background-color: aliceblue;
+            border: 1px;
+            border-style: solid;;
+            color: rgb(252, 0, 0);
+            font-weight: bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: ease 0.4s;
+        }
+
+        .closeButton:hover {
+            box-shadow: 0 0 8px rgba(56, 149, 255, 0.5);
+            transition: ease 0.4s;
+            background-color: red;
+            color: aliceblue;
+        }
+
+        .tags {
+            width: 100%;
+            height: 92%;
+            overflow: auto;
+
+        }
+
+        .tag {
+            font-size: 1.19em;
+            transition: ease 0.3s;
+        }
+
+        .tag:hover {
+            background-color: #dfdfdf;
+            transition: ease 0.3s;
+        }
+
         a:hover {
             color: #45194d;
         }
@@ -142,30 +233,22 @@
             width: 4.6px;
         }
 
-        /* Track */
         ::-webkit-scrollbar-track {
             background: #f1f1f1;
         }
 
-        /* Handle */
         ::-webkit-scrollbar-thumb {
             background: #e3ecd7;
         }
 
-        /* Handle on hover */
         ::-webkit-scrollbar-thumb:hover {
             background: #555;
-        }
-
-        button:hover {
-            background-color: #555;
-            color: #fff;
         }
     </style>
 </head>
 
 <body>
-    <div class="home" id="theHome">
+    <!-- <div class="home" id="theHome">
         <div class="alert">
             <center>
                 <h2>HTML STUDY FOR BEGIVERS</h2>
@@ -185,17 +268,18 @@
             </center>
 
         </div>
-    </div>
-    <div class="container" id="theCource">
+    </div> -->
+    <div class="container" id="theCource" style="display: block;">
         <div class="titleBar">
             <button onclick="viewCodeArea()">CODE</button>
             <button onclick="viewPreviewArea()">PREVIEW</button>&nbsp;
-            <button onclick="ClearProject()">CLEAR</button>
+            <button onclick="ClearProject();">CLEAR</button>
             <button onclick="saveTextToFile()">SAVE</button>
             <button onclick="copyCode()">COPY</button>&nbsp;
             <button onclick="sendMessageViaWhatsApp()">REPORT</button>&nbsp;
             <div style="width: 100%; height: 100%; overflow: hidden;">
-                <p onclick="alertToTitle()" id="theTitle" style="color: #fdfdfd; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"></p>
+                <p onclick="alertToTitle()" id="theTitle"
+                    style="color: #fdfdfd; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"></p>
             </div>
         </div>
         <div class="workArea">
@@ -208,8 +292,8 @@
                         <input type="text" class="page_title" id="pageTitle" value="Your Title"
                             style="text-align: center; font-size: 1rem;" onkeyup="adjestTitle()">&lt;/title&gt;
                         <br>&nbsp; &lt;/head&gt;
-                        <br><br>&nbsp; &lt;body bgcolor="<span id="viewColor"></span>" &gt; &nbsp; &nbsp; <input
-                            type="color" name="" value="#ffffff" id="bgColorAdd" onchange="changeBgColor()">
+                        <br><br>&nbsp; &lt;body bgcolor="<span id="viewColor"></span>" &gt; &nbsp; &nbsp;
+                        <input type="color" name="" value="#ffffff" id="bgColorAdd" onchange="changeBgColor()">
 
                     </div>
                     <div class="editor-wrapper">
@@ -228,6 +312,75 @@
         <center><a href="https://github.com/shehan774690541">PLEASE RESERVE COPYRIGHT </a> &copy; <a
                 href="https://www.youtube.com/@Gradient_Studio">SHEHAN RAJAPAKSHA</a></center>
     </div>
+    </div>
+    <div class="menus" id="menus_">
+        <div class="menuBar" id="menuBar">
+            <div style="width: 100%;">
+                <button class="closeButton" style="background-color: #7ee6cf; color: #ffffff;" onclick="undo()">
+                    U</button>
+                <button class="closeButton" style="background-color: #7ee6cf; color: #ffffff;"
+                    onclick="redo()">R</button>
+                <input type="color" name="colorPicker" id="color_picker"
+                    style="width: 30px; height: 30px; margin-top: 5px; border: none;" onchange="color_picker()">
+                <button onclick="menubarHide()" class="closeButton">X</button>
+            </div>
+            <div class="tags">
+                <div class="tag" onclick="addTheTag('a')">
+                    <center>
+                        < a>
+                    </center>
+                </div>
+                <div class="tag" onclick="addTheTag('h1')">
+                    <center>
+                        < h1>
+                    </center>
+                </div>
+                <div class="tag" onclick="addTheTag('h2')">
+                    <center>
+                        < h2>
+                    </center>
+                </div>
+                <div class="tag" onclick="addTheTag('h3')">
+                    <center>
+                        < h3>
+                    </center>
+                </div>
+                <div class="tag" onclick="addTheTag('h4')">
+                    <center>
+                        < h4>
+                    </center>
+                </div>
+                <div class="tag" onclick="addTheTag('h5')">
+                    <center>
+                        < h5>
+                    </center>
+                </div>
+                <div class="tag" onclick="addTheTag('h6')">
+                    <center>
+                        < h6>
+                    </center>
+                </div>
+                <div class="tag" onclick="addTheTag('table')">
+                    <center>
+                        < table>
+                    </center>
+                </div>
+                <div class="tag" onclick="addTheTag('ol')">
+                    <center>
+                        < ol>
+                    </center>
+                </div>
+                <div class="tag" onclick="addTheTag('ul')">
+                    <center>
+                        < ul>
+                    </center>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="panelSwitch" id="panelSwitch" onclick="menubarView()">
+        <span>+</span>
     </div>
 </body>
 <script>
@@ -266,28 +419,36 @@
     }
     changeBgColor()
     function ClearProject() {
-        document.getElementById("codeEditor").innerHTML = "<!-- HTML LIVE LEARNING CENTER -->";
-        document.getElementById("PreveiwMonitor").innerHTML = "";
+        const confirmation = confirm("Are you sure you want to clear the project?");
+        if (confirmation) {
+            document.getElementById("codeEditor").value = "";
+            document.getElementById("PreveiwMonitor").innerHTML = "";
+            document.getElementById("bgColorAdd").value = "#ffffff";
+            document.getElementById("pageTitle").value = "Your Title";
+            document.getElementById("theTitle").innerHTML = "Your Title";
+            updateLineNumbers();
+        }
     }
     function saveTextToFile() {
-        var pageTitle = document.getElementById("pageTitle").value;
-        var pageColor = document.getElementById("bgColorAdd").value;
+        const confirmation = confirm("Are you sure you want to download the code you wrote? \n\nDo not search on the same file repeatedly and the written code will be downloaded as a .html file.");
+        if (confirmation) {
+            var pageTitle = document.getElementById("pageTitle").value;
+            var pageColor = document.getElementById("bgColorAdd").value;
 
-        var txtTop = '<!DOCTYPE html> \n<html>\n<head>\n\t<title>' + pageTitle + '</title>  \n</head>  \n<body bgcolor="' + pageColor + '" >\n\n';
-        var txtContent = document.getElementById('codeEditor').value;
-        var txtBottom = '\n\n</body>\n</html>';
+            var txtTop = '<!DOCTYPE html> \n<html>\n<head>\n\t<title>' + pageTitle + '</title>  \n</head>  \n<body bgcolor="' + pageColor + '" >\n\n';
+            var txtContent = document.getElementById('codeEditor').value;
+            var txtBottom = '\n\n</body>\n</html>';
 
-        var content = txtTop + "\n" + txtContent + "\n" + txtBottom;
+            var content = txtTop + "\n" + txtContent + "\n" + txtBottom;
+            const blob = new Blob([content], { type: 'text/plain' });
+            const downloadLink = document.createElement('a');
+            downloadLink.href = URL.createObjectURL(blob);
+            downloadLink.download = pageTitle + '.html';
 
-        // const textToSave = document.getElementById('codeEditor').value;
-        const blob = new Blob([content], { type: 'text/plain' });
-        const downloadLink = document.createElement('a');
-        downloadLink.href = URL.createObjectURL(blob);
-        downloadLink.download = pageTitle + '.html';
-
-        document.body.appendChild(downloadLink);
-        downloadLink.click();
-        document.body.removeChild(downloadLink);
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }
     }
     function startCource() {
         document.getElementById("theHome").style.display = "none";
@@ -324,7 +485,107 @@
         var url = 'https://wa.me/' + phoneNumber + '?text=' + encodedMessage;
         window.open(url, '_blank');
     }
-    // document.getElementById("bla").innerHTML = "";
+    function menubarView() {
+        document.getElementById("menus_").style.display = "block";
+    }
+    function menubarHide() {
+        document.getElementById("menus_").style.display = "none";
+    }
+    const inputElement = document.getElementById('codeEditor');
+    const changesStack = [];
+    let currentIndex = -1;
+    function saveChange() {
+        const textValue = inputElement.value;
+        changesStack.push(textValue);
+        currentIndex++;
+    }
+    function undo() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            inputElement.value = changesStack[currentIndex];
+        }
+        updateLineNumbers();
+    }
+    function redo() {
+        if (currentIndex < changesStack.length - 1) {
+            currentIndex++;
+            inputElement.value = changesStack[currentIndex];
+        }
+        updateLineNumbers();
+    }
+    inputElement.addEventListener('input', () => {
+        changesStack.splice(currentIndex + 1);
+        saveChange();
+    });
+    saveChange();
+    function color_picker() {
+        var colorCode = document.getElementById('color_picker').value;
+        const inputElement = document.getElementById('codeEditor');
+        const textToInsert = colorCode;
+        const cursorPosition = inputElement.selectionStart;
+        const currentValue = inputElement.value;
+        const textBeforeCursor = currentValue.slice(0, cursorPosition);
+        const textAfterCursor = currentValue.slice(cursorPosition);
+        const newValue = textBeforeCursor + textToInsert + textAfterCursor;
+        inputElement.value = newValue;
+        const newCursorPosition = cursorPosition + textToInsert.length;
+        inputElement.setSelectionRange(newCursorPosition, newCursorPosition);
+        inputElement.focus();
+    }
+    function addTheTag(tag) {
+        var tag = tag;
+        var tag_a = '<a href="" title=""></a>';
+        var tag_h1 = '<h1></h1>';
+        var tag_h2 = '<h2></h2>';
+        var tag_h3 = '<h3></h3>';
+        var tag_h4 = '<h4></h4>';
+        var tag_h5 = '<h5></h5>';
+        var tag_h6 = '<h6></h6>';
+        var table = '<table border="2" width="50%">\n\t<tr>\n\t\t<th>title 1</th>\n\t\t<th>title 2</th>\n\t\t<th>title 3</th>\n\t</tr>\n\t<tr>\n\t\t<td></td>\n\t\t<td></td>\n\t\t<td></td>\n\t</tr>\n\t<tr>\n\t\t<td rowspan="2"></td>\n\t\t<td colspan="2"></td>\n\t</tr>\n\t<tr>\n\t\t<td></td>\n\t\t<td></td>\n\t</tr>\n</table>';
+        var ul = '<ul type="">\n\t<li></li>\n</ul>';
+        var ol = '<ol type="" start="">\n\t<li></li>\n</ol>';
+
+
+        if (tag == "a") {
+            code = tag_a;
+        } else if (tag == "h1") {
+            code = tag_h1;
+        } else if (tag == "h2") {
+            code = tag_h2;
+        } else if (tag == "h3") {
+            code = tag_h3;
+        } else if (tag == "h4") {
+            code = tag_h4;
+        } else if (tag == "h5") {
+            code = tag_h5;
+        } else if (tag == "h6") {
+            code = tag_h6;
+        } else if (tag == "table") {
+            code = table;
+        } else if (tag == "ul") {
+            code = ul;
+        } else if (tag == "ol") {
+            code = ol;
+        } else {
+            code = "<!-- Comment Text -->";
+        }
+
+        const inputElement = document.getElementById('codeEditor');
+        const textToInsert = code;
+        const cursorPosition = inputElement.selectionStart;
+        const currentValue = inputElement.value;
+        const textBeforeCursor = currentValue.slice(0, cursorPosition);
+        const textAfterCursor = currentValue.slice(cursorPosition);
+        const newValue = textBeforeCursor + textToInsert + textAfterCursor;
+        inputElement.value = newValue;
+        const newCursorPosition = cursorPosition + textToInsert.length;
+        inputElement.setSelectionRange(newCursorPosition, newCursorPosition);
+        inputElement.focus();
+        code = null;
+        tag = null;
+        updateLineNumbers();
+        viewPreview();
+    }
 </script>
 
 </html>
